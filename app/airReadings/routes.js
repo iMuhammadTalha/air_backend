@@ -40,18 +40,19 @@ router.get('/get-aqi-graph/:id', getAQIGraph, function (req, res) {
     res.send(res.locals.AQIGraphData);
 });
 
-//  Temperature, Humidity, Dust
-router.get('/get-aqi-graph-ml/:id', getAQIGraphML, function (req, res) {
-    res.send(res.locals.AQIGraphData);
-});
+// //  Temperature, Humidity, Dust
+// router.get('/get-aqi-graph-ml/:id', getAQIGraphML, function (req, res) {
+//     res.send(res.locals.AQIGraphData);
+// });
 
-// NH3, CO
-router.get('/get-aqi-graph-ml-2/:id', getAQIGraphML2, function (req, res) {
-    res.send(res.locals.AQIGraphData);
-});
+// // NH3, CO
+// router.get('/get-aqi-graph-ml-2/:id', getAQIGraphML2, function (req, res) {
+//     res.send(res.locals.AQIGraphData);
+// });
 
-// NO2, CH4, CO2
-router.get('/get-aqi-graph-ml-3/:id', getAQIGraphML3, function (req, res) {
-    res.send(res.locals.AQIGraphData);
-});
+// // NO2, CH4, CO2
+// router.get('/get-aqi-graph-ml-3/:id', getAQIGraphML3, function (req, res) {
+//     res.send(res.locals.AQIGraphData);
+// });
+
 module.exports = router;

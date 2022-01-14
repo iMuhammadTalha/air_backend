@@ -16,10 +16,10 @@ exports.adminLogin = function (req, res) {
         password: req.body.password
     };
 logger.info('EMAIL');
-    if(req.body.email=='iotlab@seecs.edu.pk' && req.body.password=='1234'){
+    if(req.body.email=='air@gmail.com' && req.body.password=='1234'){
         const payload = {
             id: 1,
-            email: 'iotlab@seecs.edu.pk',
+            email: 'air@gmail.com',
             role: 'admin'
         }; // Create JWT Payload
         const token = jwt.sign(payload, keys, {expiresIn: 3600000000000});
@@ -28,7 +28,7 @@ logger.info('EMAIL');
             token: 'Bearer ' + token,
             user: {
                 user_id: '1',
-                email: 'iotlab@seecs.edu.pk',
+                email: 'air@gmail.com',
                 displayName: 'IOT lab',
                 role: 'admin'
             }
