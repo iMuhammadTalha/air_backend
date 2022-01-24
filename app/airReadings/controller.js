@@ -63,7 +63,7 @@ exports.createAirReading = function (req, res, next) {
         longitude: req.body.longitude, 
         nh3: req.body.nh3, 
         no2: req.body.no2, 
-        node_id: req.body.node_id, 
+        node_id: '1', //req.body.node_id, 
         co2: req.body.co2,
         temperature: req.body.temperature,
         created_date: moment(new Date()).format('YYYY-MM-DD HH:mm:ss')

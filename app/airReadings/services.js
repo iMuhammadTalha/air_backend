@@ -19,7 +19,7 @@ exports.getAllAirReading = function (result) {
 };
 
 exports.getALatestAirReading = function (nodeID, result) {
-    const sqlQuery = `SELECT * FROM "AirReading" WHERE node_id=${nodeID} ORDER BY created_time DESC`;
+    const sqlQuery = `SELECT id, ROUND(AVG(ch4), 2) as ch4, ROUND(AVG(co), 2) AS co, ROUND(AVG(dust), 2) AS dust, ROUND(AVG(humidity), 2) AS humidity, ROUND(AVG(nh3), 2) AS nh3, ROUND(AVG(no2), 2) AS no2, ROUND(AVG(co2), 2) AS co2, ROUND(AVG(temperature), 2) AS temperature, to_char(created_time , 'YYYY-MM-DD HH24:MI') AS created_time FROM "AirReading" WHERE node_id=${nodeID} ORDER BY created_time DESC`;
     try {
         pool.query(sqlQuery, [], (err, res) => {
             if (err) {
@@ -41,7 +41,7 @@ exports.getAllAirReadingWithPagination = function (page, pageSize, sortingName, 
     } else {
         sortingQuery = 'ORDER BY ' + sortingName + ' ' + sortingOrder;
     }
-    const sqlQuery = `SELECT id, ch4, co, dust, humidity, latitude, longitude, nh3, no2, node_id, co2, temperature, to_char(created_time , 'YYYY-MM-DD HH24:MI') AS created_time FROM "AirReading" ${sortingQuery} LIMIT ${pageSize} OFFSET ${page * pageSize} `;
+    const sqlQuery = `SELECT id, ROUND(AVG(ch4), 2) as ch4, ROUND(AVG(co), 2) AS co, ROUND(AVG(dust), 2) AS dust, ROUND(AVG(humidity), 2) AS humidity, ROUND(AVG(nh3), 2) AS nh3, ROUND(AVG(no2), 2) AS no2, ROUND(AVG(co2), 2) AS co2, ROUND(AVG(temperature), 2) AS temperature, to_char(created_time , 'YYYY-MM-DD HH24:MI') AS created_time FROM "AirReading" ${sortingQuery} LIMIT ${pageSize} OFFSET ${page * pageSize} `;
     const sqlCountQuery = `SELECT COUNT(*) as count FROM "AirReading" `;
 
     try {
